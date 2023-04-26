@@ -18,7 +18,11 @@ Document and test out selenium using java. Will have different branches for each
 1. Create project structure.
 2. Create pom.xml file to import required dependency libraries.
    1. `groupId`, `artifactID`, `version`, `properties`, `dependencies`
-3. Create a main class to run driver and set up driver options(configurations)
+3. Create/update driver class to accept arguments in main constructor 
+   1. Have arguments control browser desired and set up driver options(configurations)
+   2. Create a cleanup method
+   3. Create driver getter method
+4. Create a test class to place main class and run driver with "validations"
 
 <h3>Pros</h3>
 - Multiple browser and development language support
