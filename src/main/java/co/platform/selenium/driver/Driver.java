@@ -5,22 +5,34 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Driver {
+    protected WebDriver webDriver;
 
-    public static void main( String [] args) {
-        WebDriver webDriver;
-
-        System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER_PATH"));
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("disable-blink-features=AutomationControlled");
-        options.addArguments("--remote-allow-origins=*");
-        webDriver = new ChromeDriver(options);
-        webDriver.get("http://www.google.com");
-        String actualTitle = webDriver.getTitle();
-        if (actualTitle.contentEquals("Google")){
-            System.out.println("Test Passed! title matches \"Google\"");
-        } else {
-            System.out.println("Test Failed with " + actualTitle);
+    public Driver(String browser, String url) {
+        switch(browser) {
+            case "safari":
+                System.out.println("Need to configure safari driver");
+            case "firefox":
+                System.out.println("Need to configure firefox driver");
+            default:
+                //Defaults to chrome
+                System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER_PATH"));
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("disable-blink-features=AutomationControlled");
+                options.addArguments("--remote-allow-origins=*");
+                options.addArguments("--disable-extensions");
+                options.addArguments("disable-infobars");
+                webDriver = new ChromeDriver(options);
         }
-        webDriver.close();
+
+        webDriver.get(url);
     }
+
+    public WebDriver getWebDriver() {
+        return webDriver;
+    }
+
+    public void cleanUp() {
+            webDriver.close();
+        }
 }
+
