@@ -32,7 +32,7 @@ public class Driver {
     }
 
     public void cleanUp() {
-            webDriver.close();
+            webDriver.quit();
         }
 }
 
