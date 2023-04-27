@@ -28,11 +28,13 @@ Document and test out selenium using java. Will have different branches for each
 4. Create a runner xml to indicate what test will be executed
    1. `<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">`
    2. `suite`, `test`, `classes`, `class`
-5. Create/update the test class to place test conditions with annotations 
+5. Create/update the test class to place test conditions with annotations and use page class 
    1. `@BeforeClass`, `@Test` 
 6. Add assertions to test 
    1. `Assert`, `Verify`
 7. Turn listeners on for the run configuration to get reports generated
+8. Create BasePage class that sets up the webdriver and  init's page factory
+9. Create page class(in this case google landing page) to hold elements and actions to be taken on the page
 
 <h3>Pros</h3>
 - Multiple browser and development language support
